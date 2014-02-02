@@ -1,6 +1,8 @@
 jquery-localmodel
 =================
 
+[![Build Status](https://travis-ci.org/simock85/jquery-localmodel.png?branch=master)](https://travis-ci.org/simock85/jquery-localmodel)
+
 jquery-localmodel simplifies asynchronous communication and dom manipulation in your *old but solid gold* server-side
 web application.
 
