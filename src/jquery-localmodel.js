@@ -5,6 +5,17 @@
   localModel = function($) {
     var LocalModel;
     LocalModel = (function() {
+
+      /*
+      Create a new LocalModel object
+      
+      @param {Object} options Options object
+      options:
+        * fetchUrl Server GET endpoint
+        * saveUrl Server POST endpoint
+        * url Unique server endpoint if supports both GET and POST methods
+        * el jQuery selector that matches the nodes where contents are rendered
+       */
       var mergeObjs;
 
       function LocalModel(options) {
@@ -18,10 +29,22 @@
         this.model = {};
       }
 
+
+      /*
+      Set the html contents in the set this.$el
+       */
+
       LocalModel.prototype.render = function() {
         this.$el.html(this.model.value);
         return this;
       };
+
+
+      /*
+      GET the data from this.fetchUrl and store the response into this.model
+      
+      @param {Object} data Sent to the server as query string
+       */
 
       LocalModel.prototype.fetch = function(data) {
         if (data == null) {
@@ -36,6 +59,16 @@
         return this;
       };
 
+
+      /*
+      POST this.model to this.saveUrl. this.model is JSON serialized under a `model` parameter,
+      and the request is made with a application/x-www-form-urlencoded MIME type.
+      If the server response contains `model` key, `model` will be merged into this.model
+      
+      @param {Object} model This object is merged into this.model before POST
+      @param {Object} extraData Extra data sent to server but not merged into this.model
+       */
+
       LocalModel.prototype.save = function(model, extraData) {
         var data;
         if (model == null) {
@@ -44,18 +77,26 @@
         if (extraData == null) {
           extraData = {};
         }
-        data = mergeObjs(this.model, model, extraData);
+        $.extend(this.model, model);
+        data = mergeObjs(this.model, extraData);
         data = {
           model: JSON.stringify(data)
         };
         $.post(this.saveUrl, data, (function(_this) {
           return function(response) {
-            model = response.model != null ? response.model : model;
+            model = response.model != null ? response.model : {};
             return _this.set(model);
           };
         })(this));
         return this;
       };
+
+
+      /*
+      Merge an object into this.model and then trigger this.render()
+      
+      @param {Object} model This object is merged into this.model
+       */
 
       LocalModel.prototype.set = function(model) {
         if (model == null) {
@@ -65,6 +106,11 @@
         this.render();
         return this.model;
       };
+
+
+      /*
+      Get a the value of a single key of this.model, or the entire model
+       */
 
       LocalModel.prototype.get = function(key) {
         if (typeof key !== 'undefined') {
