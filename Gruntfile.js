@@ -22,13 +22,24 @@ module.exports = function (grunt) {
         },
         qunit: {
             all: ['test/**/*.html']
+        },
+        docco: {
+            build: {
+                src: '<%= coffee.build.src %>',
+                options: {
+                    output: 'docs/',
+                    layout: 'classic'
+                }
+            }
         }
     });
 
     grunt.loadNpmTasks('grunt-contrib-coffee');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-qunit');
+    grunt.loadNpmTasks('grunt-docco');
 
     grunt.registerTask('default', ['coffee', 'uglify']);
+    grunt.registerTask('docs', ['docco']);
     grunt.registerTask('test', ['qunit']);
 };

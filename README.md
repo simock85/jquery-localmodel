@@ -9,4 +9,4 @@ web application.
 It handles the dirty work of storing data on the client side, and keeping that data in sync with your server and
 the UI.
 
-For the complete documentation, see the annotated source at http://simock85.github.io/jquery-localmodel
+For the complete documentation, see the annotated source at http://simock85.github.io/jquery-localmodel/jquery-localmodel.html
