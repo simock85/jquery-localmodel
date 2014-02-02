@@ -1,0 +1,4 @@
+[submodule "docs"]
+	path = docs
+	url = git@github.com:simock85/jquery-localmodel.git
+	branch = gh-pages
