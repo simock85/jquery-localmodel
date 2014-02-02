@@ -1,71 +1,312 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>Jquery-localmodel by simock85</title>
-
-    <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-  </head>
-  <body>
-    <div class="wrapper">
-      <header>
-        <h1>Jquery-localmodel</h1>
-        <p>Simplify asynchronous communication and dom manipulation in old but gold server-side webapps</p>
-
-        <p class="view"><a href="https://github.com/simock85/jquery-localmodel">View the Project on GitHub <small>simock85/jquery-localmodel</small></a></p>
-
-
-        <ul>
-          <li><a href="https://github.com/simock85/jquery-localmodel/zipball/master">Download <strong>ZIP File</strong></a></li>
-          <li><a href="https://github.com/simock85/jquery-localmodel/tarball/master">Download <strong>TAR Ball</strong></a></li>
-          <li><a href="https://github.com/simock85/jquery-localmodel">View On <strong>GitHub</strong></a></li>
-        </ul>
-      </header>
-      <section>
-        <h3>
-<a name="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages"><span class="octicon octicon-link"></span></a>Welcome to GitHub Pages.</h3>
-
-<p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here using GitHub Flavored Markdown, select a template crafted by a designer, and publish. After your page is generated, you can check out the new branch:</p>
-
-<pre><code>$ cd your_repo_root/repo_name
-$ git fetch origin
-$ git checkout gh-pages
-</code></pre>
-
-<p>If you're using the GitHub for Mac, simply sync your repository and you'll see the new branch.</p>
-
-<h3>
-<a name="designer-templates" class="anchor" href="#designer-templates"><span class="octicon octicon-link"></span></a>Designer Templates</h3>
-
-<p>We've crafted some handsome templates for you to use. Go ahead and continue to layouts to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved if it remained markdown format.</p>
-
-<h3>
-<a name="rather-drive-stick" class="anchor" href="#rather-drive-stick"><span class="octicon octicon-link"></span></a>Rather Drive Stick?</h3>
-
-<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator written by our own Tom Preston-Werner. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
-
-<h3>
-<a name="authors-and-contributors" class="anchor" href="#authors-and-contributors"><span class="octicon octicon-link"></span></a>Authors and Contributors</h3>
-
-<p>You can <a href="https://github.com/blog/821" class="user-mention">@mention</a> a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor's GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>
-
-<h3>
-<a name="support-or-contact" class="anchor" href="#support-or-contact"><span class="octicon octicon-link"></span></a>Support or Contact</h3>
-
-<p>Having trouble with Pages? Check out the documentation at <a href="http://help.github.com/pages">http://help.github.com/pages</a> or contact <a href="mailto:support@github.com">support@github.com</a> and we’ll help you sort it out.</p>
-      </section>
-      <footer>
-        <p>This project is maintained by <a href="https://github.com/simock85">simock85</a></p>
-        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
-      </footer>
-    </div>
-    <script src="javascripts/scale.fix.js"></script>
+<head>
+  <title>jquery-localmodel</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+  <link rel="stylesheet" media="all" href="doccoh.css" />
+</head>
+<body>
+  <div id="container">
+    <div id="background"></div>
     
-  </body>
+    <ul class="sections">
+        
+          <li id="title">
+              <div class="annotation">
+                  <h1>jquery-localmodel</h1>
+              </div>
+          </li>
+        
+        
+        
+        <li id="section-1">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-1">&#182;</a>
+              </div>
+              
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-function"><span class="hljs-title">localModel</span> = <span class="hljs-params">($)</span> -&gt;</span>
+  <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">LocalModel</span></span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-2">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-2">&#182;</a>
+              </div>
+              <p>Create a new LocalModel object</p>
+<p><code>options</code>:</p>
+<ul>
+<li><code>fetchUrl</code> Server GET endpoint</li>
+<li><code>saveUrl</code> Server POST endpoint</li>
+<li><code>url</code> Unique server endpoint if supports both GET and POST methods</li>
+<li><code>el</code> jQuery selector that matches the nodes where contents are rendered</li>
+</ul>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    <span class="hljs-attribute">constructor</span>: <span class="hljs-function"><span class="hljs-params">(options = {})</span> -&gt;</span>
+      <span class="hljs-property">@fetchUrl</span> = options.fetchUrl ? options.url
+      <span class="hljs-property">@saveUrl</span> = options.saveUrl ? options.url
+      <span class="hljs-property">@$el</span> = <span class="hljs-property">@jQel</span> = options.$el ? $(options.el)
+      <span class="hljs-property">@model</span> = {}</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-3">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-3">&#182;</a>
+              </div>
+              <p>Set the html contents in the set this.$el</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    <span class="hljs-attribute">render</span>: <span class="hljs-function"><span class="hljs-params">()</span> -&gt;</span>
+      <span class="hljs-property">@$el</span>.html(<span class="hljs-property">@model</span>.value)
+      <span class="hljs-keyword">return</span> @</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-4">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-4">&#182;</a>
+              </div>
+              <p>GET the data from this.fetchUrl and store the response into this.model</p>
+<ul>
+<li><code>data</code> Sent to the server as query string</li>
+</ul>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    <span class="hljs-attribute">fetch</span>: <span class="hljs-function"><span class="hljs-params">(data = {})</span> -&gt;</span>
+      $.getJSON <span class="hljs-property">@fetchUrl</span>, data, <span class="hljs-function"><span class="hljs-params">(response)</span>=&gt;</span>
+        <span class="hljs-property">@model</span> = response
+        <span class="hljs-property">@render</span>()
+      <span class="hljs-keyword">return</span> @</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-5">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-5">&#182;</a>
+              </div>
+              <p>POST this.model to this.saveUrl. this.model is JSON serialized under a <code>model</code> parameter,
+and the request is made with a application/x-www-form-urlencoded MIME type.
+If the server response contains <code>model</code> key, <code>model</code> will be merged into this.model</p>
+<ul>
+<li><code>model</code> Merged into this.model before POST</li>
+<li><code>extraData</code> Sent to server but not merged into this.model</li>
+</ul>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    <span class="hljs-attribute">save</span>: <span class="hljs-function"><span class="hljs-params">(model = {}, extraData = {})</span> -&gt;</span>
+      $.extend(<span class="hljs-property">@model</span>, model)
+      data = mergeObjs(<span class="hljs-property">@model</span>, extraData)
+      data = {<span class="hljs-attribute">model</span>: JSON.stringify(data)}
+      $.post <span class="hljs-property">@saveUrl</span>, data, <span class="hljs-function"><span class="hljs-params">(response)</span> =&gt;</span>
+        model = <span class="hljs-keyword">if</span> response.model? <span class="hljs-keyword">then</span> response.model <span class="hljs-keyword">else</span> {}
+        <span class="hljs-property">@set</span>(model)
+      <span class="hljs-keyword">return</span> @</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-6">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-6">&#182;</a>
+              </div>
+              <p>Merge an object into this.model and then trigger this.render()</p>
+<ul>
+<li><code>model</code> Merged into this.model</li>
+</ul>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    <span class="hljs-attribute">set</span>: <span class="hljs-function"><span class="hljs-params">(model = {})</span> -&gt;</span>
+      $.extend(<span class="hljs-property">@model</span>, model)
+      <span class="hljs-property">@render</span>()
+      <span class="hljs-keyword">return</span> <span class="hljs-property">@model</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-7">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-7">&#182;</a>
+              </div>
+              <p>Get a the value of a single key of this.model, or the entire model</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    <span class="hljs-attribute">get</span>: <span class="hljs-function"><span class="hljs-params">(key)</span> -&gt;</span>
+      <span class="hljs-keyword">if</span> <span class="hljs-keyword">typeof</span> key <span class="hljs-keyword">isnt</span> <span class="hljs-string">'undefined'</span>
+        <span class="hljs-keyword">return</span> <span class="hljs-property">@model</span>[key]
+      <span class="hljs-keyword">return</span> <span class="hljs-property">@model</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-8">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-8">&#182;</a>
+              </div>
+              <p>Helper function to merge multiple objects</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    <span class="hljs-function"><span class="hljs-title">mergeObjs</span> = <span class="hljs-params">(objs...)</span> -&gt;</span>
+      newObj = {}
+      <span class="hljs-keyword">for</span> obj <span class="hljs-keyword">in</span> objs
+        <span class="hljs-keyword">for</span> attr, val <span class="hljs-keyword">of</span> obj
+          newObj[attr] = val
+      <span class="hljs-keyword">return</span> newObj</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-9">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-9">&#182;</a>
+              </div>
+              <p>Helper function to correctly set up the prototype chain, for subclasses.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  LocalModel.<span class="hljs-function"><span class="hljs-title">extend</span> = <span class="hljs-params">(protoProps = {})</span> -&gt;</span>
+    parent = @</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-10">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-10">&#182;</a>
+              </div>
+              <p>The constructor function for the new subclass is the <code>parent</code>&#39;s constructor</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    <span class="hljs-function"><span class="hljs-title">child</span> = -&gt;</span>
+      parent.apply(@, arguments)
+    $.extend(child, parent)</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-11">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-11">&#182;</a>
+              </div>
+              <p>Set the prototype chain to inherit from <code>parent</code>, without calling
+<code>parent</code>&#39;s constructor function.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    <span class="hljs-function"><span class="hljs-title">Surrogate</span> = -&gt;</span>
+      <span class="hljs-property">@constructor</span> = child
+      <span class="hljs-keyword">return</span>
+    Surrogate.prototype = parent.prototype
+    child.prototype = <span class="hljs-keyword">new</span> Surrogate</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-12">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-12">&#182;</a>
+              </div>
+              <p>Add prototype properties to the subclass</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    $.extend(child.prototype, protoProps)</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-13">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-13">&#182;</a>
+              </div>
+              <p>Set a convenience property in case the parent&#39;s prototype is needed later.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    child.__super__ = parent.prototype
+    <span class="hljs-keyword">return</span> child
+
+  <span class="hljs-keyword">return</span> LocalModel</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-14">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-14">&#182;</a>
+              </div>
+              <p>Support for RequireJS</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-keyword">if</span> <span class="hljs-keyword">typeof</span> define <span class="hljs-keyword">is</span> <span class="hljs-string">"function"</span> <span class="hljs-keyword">and</span> <span class="hljs-keyword">typeof</span> define.amd <span class="hljs-keyword">is</span> <span class="hljs-string">"object"</span> <span class="hljs-keyword">and</span> define.amd
+  define <span class="hljs-string">'LocalModel'</span>, [<span class="hljs-string">'jquery'</span>], <span class="hljs-function"><span class="hljs-params">($)</span> -&gt;</span>
+    <span class="hljs-keyword">return</span> localModel($)</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-15">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-15">&#182;</a>
+              </div>
+              <p>In browser</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-keyword">else</span>
+  <span class="hljs-built_in">window</span>.LocalModel = localModel($)</pre></div></div>
+            
+        </li>
+        
+    </ul>
+  </div>
+</body>
 </html>
